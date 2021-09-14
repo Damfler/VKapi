@@ -6,7 +6,7 @@ function getFriends ($id, $token) {
 
 }
 
-function delFriends ($id, $token) {
+function deleteFriends ($id, $token) {
 
     return file_get_contents("https://api.vk.com/method/friends.delete?user_id=$id&access_token=$token&v=5.131");
 
