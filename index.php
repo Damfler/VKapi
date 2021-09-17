@@ -1,11 +1,7 @@
 <?
+/*---/===/===/===/===/--- VK API ---/===/===/===/===/---*/
 include_once('class.php');
 
-$token = '';
-$id = '';
+$login = ''; /* YOU LOGIN */
+$password = ''; /* YOU PASSWORD */
 
-// Get Freinds
-$list = getFriends($id, $token);
-// $list = json_decode($list, true);
-
-echo $list;
