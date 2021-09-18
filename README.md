@@ -22,10 +22,10 @@
 
 - [Introduction](#introduction)
 - [Users](#user)
-    - [users.get](#users.get)
+    - [users.get](#usersget)
 - [Friends](#friends)
-    - [friends.get](#friends.get)
-    - [friends.delete](#friends.delete)
+    - [friends.get](#friendsget)
+    - [friends.delete](#friendsdelete)
 
 ## Introduction <a name = "introduction"></a>
 
@@ -45,7 +45,7 @@ There are a lot of methods in the VK api, so I have divided the readme into cate
 
 Methods for working with user data.
 
-### users.get<a name = "#users.get"></a>
+### users.get<a name = "#usersget"></a>
 Returns extended user information.
 
 For this method, I have two functions:
@@ -60,7 +60,7 @@ In both functions, it is necessary to pass the first parameter to the user's log
 
 Methods for working with friends.
 
-### friends.get<a name = "#friends.get"></a>
+### friends.get<a name = "#friendsget"></a>
 Returns a list of the user's friend IDs or extended information about the user's friends (when using the fields parameter).
 
 There are also two functions for this request.
@@ -69,7 +69,7 @@ There are also two functions for this request.
 
 To work, you need to pass the token parameter. `($token)`
 
-### friends.delete<a name = "#friends.delete"></a>
+### friends.delete<a name = "#friendsdelete"></a>
 Removes a user from the friends list or rejects a friend request.
 
 The function for deleting friends accepts an array with the user id and a token. `deleteFriends($id_friend = [], $token)`
