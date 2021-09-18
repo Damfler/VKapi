@@ -23,6 +23,8 @@
 - [Introduction](#introduction)
 - [Users](#user)
     - [users.get](#usersget)
+    - [users.getFollowers](#usersgetfollowers)
+    - [users.getSubscriptions](#usersgetsubscriptions)
 - [Friends](#friends)
     - [friends.get](#friendsget)
     - [friends.delete](#friendsdelete)
@@ -54,6 +56,23 @@ For this method, I have two functions:
 
 In both functions, it is necessary to pass the first parameter to the user's login, often this is a phone number, and the second parameter is the user's password. `($login, $password)`
 
+### users.getFollowers<a name = "#usersgetfollowers"></a>
+Returns a list of user IDs that are subscribers of the user.
+
+There are also two functions for this request.
+- The first one is necessary to get a lot of subscribers with their ID. `getFollowersItems`
+- The second is to get the number of subscribers currently. `getFollowersCount`
+
+To work, you need to pass the token parameter. `($token)`
+
+### users.getSubscriptions<a name = "#usersgetsubscriptions"></a>
+Returns a list of user IDs and public pages that are included in the list of user subscriptions.
+
+There are also two functions for this request.
+- The first one is necessary to get a lot of subscriptions with their ID. `getSubscriptionsItems`
+- The second is to get the number of subscriptions currently. `getSubscriptionsCount`
+
+To work, you need to pass the token parameter. `($token)`
 
 
 ## Friends<a name = "friends"></a>

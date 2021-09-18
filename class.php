@@ -45,7 +45,7 @@ function getFollowersItems($token)
 /* Get count Subscriptions */
 function getFollowersCount($token)
 {
-    $friends = file_get_contents("https://api.vk.com/method/users.getSubscriptions?access_token=$token&v=5.131");
+    $friends = file_get_contents("https://api.vk.com/method/users.getFollowers?access_token=$token&v=5.131");
     $friends = json_decode($friends, true);
     if (!empty($friends['response']))
         return $friends['response']['count'];
@@ -71,7 +71,7 @@ function getSubscriptionsItems($token)
 /* Get count followers */
 function getSubscriptionsCount($token)
 {
-    $friends = file_get_contents("https://api.vk.com/method/users.getFollowers?access_token=$token&v=5.131");
+    $friends = file_get_contents("https://api.vk.com/method/users.getSubscriptions?access_token=$token&v=5.131");
     $friends = json_decode($friends, true);
     if (!empty($friends['response']))
         return $friends['response']['count'];
