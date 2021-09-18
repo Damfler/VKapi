@@ -1,6 +1,8 @@
 <?
 /*---/===/===/===/===/--- VK API ---/===/===/===/===/---*/
 
+/* --- / USER / --- */
+
 /* Get USER access token  */
 function getUserToken($login, $password)
 {
@@ -26,6 +28,60 @@ function getUserId($login, $password)
         return false;
     }
 }
+
+/* Get all followers */
+function getFollowersItems($token)
+{
+    $friends = file_get_contents("https://api.vk.com/method/users.getFollowers?access_token=$token&v=5.131");
+    $friends = json_decode($friends, true);
+    if (!empty($friends['response']))
+        return $friends['response']['items'];
+    else {
+        echo $friends['error']['error_msg'];
+        return false;
+    }
+}
+
+/* Get count Subscriptions */
+function getFollowersCount($token)
+{
+    $friends = file_get_contents("https://api.vk.com/method/users.getSubscriptions?access_token=$token&v=5.131");
+    $friends = json_decode($friends, true);
+    if (!empty($friends['response']))
+        return $friends['response']['count'];
+    else {
+        echo $friends['error']['error_msg'];
+        return false;
+    }
+}
+
+/* Get all Subscriptions */
+function getSubscriptionsItems($token)
+{
+    $friends = file_get_contents("https://api.vk.com/method/users.getSubscriptions?access_token=$token&v=5.131");
+    $friends = json_decode($friends, true);
+    if (!empty($friends['response']))
+        return $friends['response']['items'];
+    else {
+        echo $friends['error']['error_msg'];
+        return false;
+    }
+}
+
+/* Get count followers */
+function getSubscriptionsCount($token)
+{
+    $friends = file_get_contents("https://api.vk.com/method/users.getFollowers?access_token=$token&v=5.131");
+    $friends = json_decode($friends, true);
+    if (!empty($friends['response']))
+        return $friends['response']['count'];
+    else {
+        echo $friends['error']['error_msg'];
+        return false;
+    }
+}
+
+/* --- / FRIENDS / --- */
 
 /* Get all friend */
 function getFriendsItems($token)
@@ -65,30 +121,4 @@ function deleteFriends($id_friend = [], $token)
         }
     }
     return true;
-}
-
-/* Get all followers */
-function getFollowersItems($token)
-{
-    $friends = file_get_contents("https://api.vk.com/method/users.getFollowers?access_token=$token&v=5.131");
-    $friends = json_decode($friends, true);
-    if (!empty($friends['response']))
-        return $friends['response']['items'];
-    else {
-        echo $friends['error']['error_msg'];
-        return false;
-    }
-}
-
-/* Get count followers */
-function getFollowersCount($token)
-{
-    $friends = file_get_contents("https://api.vk.com/method/users.getFollowers?access_token=$token&v=5.131");
-    $friends = json_decode($friends, true);
-    if (!empty($friends['response']))
-        return $friends['response']['count'];
-    else {
-        echo $friends['error']['error_msg'];
-        return false;
-    }
 }
