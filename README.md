@@ -8,9 +8,70 @@
 
 [![Tweet](https://img.shields.io/twitter/url/https/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=%F0%9F%93%A2%20Various%20README%20templates%20and%20tips%20on%20writing%20high-quality%20documentation%20that%20people%20want%20to%20read.&url=https://github.com/Damfler/vk-API)
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![GitHub Issues](https://img.shields.io/github/v/release/Damfler/VKapi?include_prereleases)](https://github.com/Damfler/vk-API/issues)
+[![GitHub Issues](https://img.shields.io/github/v/release/Damfler/VKapi?include_prereleases)](https://github.com/Damfler/vk-API/releases)
  [![GitHub Issues](https://img.shields.io/github/followers/Damfler?label=Follow)](https://github.com/Damfler)
 
 </div>
 
 ---
+
+<p align = "center">💡 Instructions using my ready-made solution 💡</p>
+
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Users](#user)
+    - [users.get](#users.get)
+- [Friends](#friends)
+    - [friends.get](#friends.get)
+    - [friends.delete](#friends.delete)
+
+## Introduction <a name = "introduction"></a>
+
+All this is a ready-made solution for the VK api. I am providing you with a file, already with ready-made functions for all operations, so far there is only one, this is 
+[`class.php`](/class.php).
+
+Connect the file to your project, and then just call all the necessary functions.
+An example of the initial page is shown in `index.php`
+
+There are a lot of methods in the VK api, so I have divided the readme into categories, with each addition of a new method, I will add to the description of functions.
+
+**First, get your token!** Go to the description.
+
+
+
+## Users<a name = "user"></a>
+
+Methods for working with user data.
+
+### users.get<a name = "#users.get"></a>
+Returns extended user information.
+
+For this method, I have two functions:
+- The first one returns only the token. `getUserToken`
+- The second returns only the id. `getUserId`
+
+In both functions, it is necessary to pass the first parameter to the user's login, often this is a phone number, and the second parameter is the user's password. `($login, $password)`
+
+
+
+## Friends<a name = "friends"></a>
+
+Methods for working with friends.
+
+### friends.get<a name = "#friends.get"></a>
+Returns a list of the user's friend IDs or extended information about the user's friends (when using the fields parameter).
+
+There are also two functions for this request.
+- The first one is necessary to get an array of friends with their id. `getFriendsItems`
+- The second is to get the number of users currently `getFriendsCount`
+
+To work, you need to pass the token parameter. `($token)`
+
+### friends.delete<a name = "#friends.delete"></a>
+Removes a user from the friends list or rejects a friend request.
+
+The function for deleting friends accepts an array with the user id and a token. `deleteFriends($id_friend = [], $token)`
+
+If an error occurred (invalid id, error in the process,...), an error will appear, otherwise it will output true.
